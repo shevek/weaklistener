@@ -30,6 +30,14 @@ Mistakes
 There is no strong reference to MyListener, so it will garbage-collect
 immediately.
 
+Documentation
+-------------
+
+The [JavaDoc API](http://shevek.github.io/weaklistener/docs/javadoc/)
+and
+[Coverage report](http://shevek.github.io/weaklistener/docs/cobertura/)
+are available.
+
 Credits
 -------
 
