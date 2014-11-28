@@ -1,0 +1,22 @@
+// Establish version and status
+ext.githubProjectName = rootProject.name // Change if github project name is not the same as the root project's name
+
+buildscript {
+	apply from: file('gradle/buildscript.gradle'), to: buildscript
+}
+
+apply from: file('gradle/convention.gradle')
+apply from: file('gradle/github.gradle')
+// apply from: file('gradle/maven.gradle')
+apply from: file('gradle/nexus.gradle')
+apply from: file('gradle/check.gradle')
+apply from: file('gradle/license.gradle')
+
+subprojects {
+	group = "org.anarres.weaklistener"
+}
+
+project(':weaklistener-core') {
+	dependencies {
+	}
+}

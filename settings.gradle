@@ -1,0 +1,2 @@
+rootProject.name='weaklistener'
+include 'weaklistener-core'
