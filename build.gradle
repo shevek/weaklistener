@@ -1,22 +1,30 @@
-// Establish version and status
-ext.githubProjectName = rootProject.name // Change if github project name is not the same as the root project's name
-
 buildscript {
 	apply from: file('gradle/buildscript.gradle'), to: buildscript
 }
 
-apply from: file('gradle/convention.gradle')
-apply from: file('gradle/github.gradle')
-// apply from: file('gradle/maven.gradle')
-apply from: file('gradle/nexus.gradle')
-apply from: file('gradle/check.gradle')
-apply from: file('gradle/license.gradle')
+apply plugin: 'org.anarres.stdproject'
+stdproject {
+}
 
 subprojects {
 	group = "org.anarres.weaklistener"
+
+	apply plugin: 'org.anarres.stdmodule'
+	stdmodule {
+		description "A Java EventListener using WeakReference."
+		author id: 'shevek', name: 'Shevek', email: 'github@anarres.org'
+		license 'Apache-2.0'
+	}
+
+	sourceCompatibility = 1.5
+	animalsniffer {
+		signature = "org.codehaus.mojo.signature:java15:+@signature"
+	}
 }
 
 project(':weaklistener-core') {
 	dependencies {
+		compile 'com.google.code.findbugs:annotations:2.0.3'
+		compile 'org.slf4j:slf4j-api:1.7.12'
 	}
 }
